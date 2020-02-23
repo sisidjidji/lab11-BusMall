@@ -1,0 +1,29 @@
+main {
+    text-align: center;
+}
+img{
+    margin-top: 70px;
+    widows: 200px;
+    height: 300px;
+}
+
+h1{
+    margin-top: 50px;
+    font-family: 'Roboto' ;
+    color:white ;
+    border: darkslategray solid;
+    background-color: dimgray;
+}
+
+footer{
+
+    border: darkslategray solid;
+    background-color: dimgray;
+
+    margin-top: 50PX ;
+    text-align: justify;
+    color:white ;
+    width: 300px;
+    margin-left: 600px;
+
+}
