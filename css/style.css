@@ -1,10 +1,25 @@
-main {
-    text-align: center;
+ .footer-ul{
+ 
+    float: left;
+    color: darkslategrey;
+} 
+aside{
+    margin-top:70px ;
+    border: 2px darkslategrey solid;
+    color: darkslategrey;
+    text-align: justify;
+    max-width:500px ;
+    height:500px ;
+
+ 
 }
 img{
     margin-top: 70px;
-    widows: 200px;
+    width: 300px;
     height: 300px;
+    float:right;
+    border: 2px darkslategrey solid;
+
 }
 
 h1{
@@ -13,19 +28,32 @@ h1{
     color:white ;
     border: darkslategray solid;
     background-color: dimgray;
-    
+    text-align: center;
+    height: 50px;
+   
 }
 
-footer{
+.footer-id{
+    margin-right: 20;
+    margin-top: 0px;
+}
 
-    border: darkslategray solid;
-    background-color: dimgray;
+p{
 
-    margin-top: 50PX ;
+
+    margin-top: 0px;
+    margin-left: 600px ;
     text-align: justify;
-    color:white ;
-    width: 300px;
-    margin-left: 600px;
+    font-size: large;
+    color:black ;
+    max-width: 700px;
+    max-height: 300px;
+
+    
 
 
+}
+main{
+    margin-right: 0px;
+    display: inline;
 }

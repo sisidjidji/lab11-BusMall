@@ -16,6 +16,8 @@ function product (name,imgUrl){
     this.name=name;
     this.imgUrl=imgUrl;
     this.totalClick=0;
+    this.totalshow= 0;
+
     allProductPicture.push (this);
 
 }
@@ -84,12 +86,20 @@ function numberOfClick (event){
     }
     
     picIndex1= Nextproduct1;
+    allProductPicture[picIndex1].totalshow++
     picIndex2=Nextproduct2;
+    allProductPicture[picIndex2].totalshow++
     picIndex3=Nextproduct3;
-
+    allProductPicture[picIndex3].totalshow++
+    
     imageElements[0].src =allProductPicture[picIndex1].imgUrl;
+    
     imageElements[1].src =allProductPicture[picIndex2].imgUrl;
+
     imageElements[2].src =allProductPicture[picIndex3].imgUrl;
+   
+
+
   
    
     var clickAllowed = 25;
@@ -118,7 +128,7 @@ function numberOfClick (event){
     for(i=0;i<allProductPicture.length;i++){
 
         var li=document.createElement('li');
-        li.textContent=' The '+ allProductPicture[i].name + ' was cliqued : '+allProductPicture[i].totalClick;
+        li.textContent=' The '+ allProductPicture[i].name + ' was cliqued : '+allProductPicture[i].totalClick +' and the number of time it was shown is '+ allProductPicture[i].totalshow;
         ul.appendChild(li)
 
       
