@@ -8,6 +8,10 @@ var picIndex3=2;
 var allProductPicture=[];
 var imageElements=document.getElementsByTagName('img');
 var allClicks=0;
+var preimg1=0;
+var preimg2=0;
+var preimg3=0;
+
 
 
 
@@ -53,47 +57,58 @@ function numberOfClick (event){
 
     if (event.srcElement.id=== '1'){
 
-        allProductPicture[picIndex1].totalClick++
+        allProductPicture[picIndex1].totalClick++ ;
     }
     else if(event.srcElement.id=== '2')
     {
-        allProductPicture[picIndex2].totalClick++
+        allProductPicture[picIndex2].totalClick++ ;
 
     }
     else {
 
-        allProductPicture[picIndex3].totalClick++
+        allProductPicture[picIndex3].totalClick++ ;
     }
+    
+    
+    var Nextproduct1 = Math.floor(Math.random()* allProductPicture.length);
 
-    var Nextproduct1=Math.floor(Math.random()* allProductPicture.length);
+    while((Nextproduct1===picIndex1)||(Nextproduct1===picIndex2)||(Nextproduct1===picIndex3)|| (Nextproduct1===preimg1)|| (Nextproduct1===preimg2)|| (Nextproduct1===preimg3)){
+  
 
-    while((Nextproduct1===picIndex1)||(Nextproduct1===picIndex2)||(Nextproduct1===picIndex3)){
+    Nextproduct1=Math.floor(Math.random()* allProductPicture.length);
 
-        Nextproduct1=Math.floor(Math.random()* allProductPicture.length);
     }
 
     var Nextproduct2=Math.floor(Math.random()* allProductPicture.length);
 
-    while((Nextproduct2===picIndex1)||(Nextproduct2===picIndex2)||(Nextproduct2===picIndex3)||(Nextproduct2===Nextproduct1)){
+    while((Nextproduct2===picIndex1)||(Nextproduct2===picIndex2)||(Nextproduct2===picIndex3)||(Nextproduct2===Nextproduct1)||(Nextproduct2===preimg1)|| (Nextproduct2===preimg2)|| (Nextproduct2===preimg3)){
 
-        Nextproduct2=Math.floor(Math.random()* allProductPicture.length);
+    var Nextproduct2=Math.floor(Math.random()* allProductPicture.length);
     }
-    var Nextproduct3=Math.floor(Math.random()* allProductPicture.length)
+    var Nextproduct3=Math.floor(Math.random()* allProductPicture.length);
 
-    while((Nextproduct3===picIndex1)||(Nextproduct3===picIndex2)||(Nextproduct3===picIndex3)||(Nextproduct3===Nextproduct1)|| (Nextproduct3===Nextproduct2)){
+    while((Nextproduct3===picIndex1)||(Nextproduct3===picIndex2)||(Nextproduct3===picIndex3)||(Nextproduct3===Nextproduct1)|| (Nextproduct3===Nextproduct2)|| (Nextproduct3===preimg1)|| (Nextproduct3===preimg2)|| (Nextproduct3===preimg3)){
 
-        var Nextproduct3=Math.floor(Math.random()* allProductPicture.length);
+    var Nextproduct3=Math.floor(Math.random()* allProductPicture.length);
     }
     
+
+
+
     picIndex1= Nextproduct1;
+    preimg1=Nextproduct1;
     allProductPicture[picIndex1].totalshow++
     picIndex2=Nextproduct2;
+    preimg2=Nextproduct2;
     allProductPicture[picIndex2].totalshow++
     picIndex3=Nextproduct3;
+    preimg3=Nextproduct3;
     allProductPicture[picIndex3].totalshow++
+
     
+   
     imageElements[0].src =allProductPicture[picIndex1].imgUrl;
-    
+   
     imageElements[1].src =allProductPicture[picIndex2].imgUrl;
 
     imageElements[2].src =allProductPicture[picIndex3].imgUrl;
@@ -128,23 +143,24 @@ function numberOfClick (event){
     for(i=0;i<allProductPicture.length;i++){
 
         var li=document.createElement('li');
-        li.textContent=' The '+ allProductPicture[i].name + ' was cliqued : '+allProductPicture[i].totalClick +' and the number of time it was shown is '+ allProductPicture[i].totalshow;
+        li.textContent=' The '+ allProductPicture[i].name +  ' was clicked :' + allProductPicture[i].totalClick +' was shown : ' + allProductPicture[i].totalshow;
         ul.appendChild(li)
 
       
+
     }
  
 
 }
 
-
 }
+
+
 
 
 for (var i = 0; i < imageElements.length; i++) 
   {
-    imageElements[i].addEventListener('click', numberOfClick );
+
+  imageElements[i].addEventListener('click', numberOfClick );  
 
   }
-
- 
