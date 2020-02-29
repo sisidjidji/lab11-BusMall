@@ -50,3 +50,13 @@ p{
 
 
 }
+
+
+.canvasChart{
+
+    
+    color: darkslategrey;
+    max-width: 700px ;
+    max-height:700px ;
+    margin-left: 555px;
+}

@@ -137,7 +137,29 @@ function numberOfClick (event){
       
         }
 
-{
+
+        var footerul = document.getElementById('footer-ul');
+
+     
+
+
+        if(footerul.firstElementChild){
+                footerul.firstElementChild.remove();
+              }
+    
+      
+        var ul=document.createElement('ul');
+        footerul.appendChild(ul);
+        
+        for(i=0;i<allProductPicture.length;i++){
+    
+            var li=document.createElement('li');
+            li.textContent=' The '+ allProductPicture[i].name + ' was cliqued : '+allProductPicture[i].totalClick +' and the number of time it was shown is '+ allProductPicture[i].totalshow;
+            ul.appendChild(li)
+    
+          
+        }
+
     var ctx = document.getElementById('resultsChart').getContext('2d');
  
   new Chart(ctx, {
@@ -169,7 +191,7 @@ function numberOfClick (event){
     }
   });
 
-  }
+  
 
 }
 }
