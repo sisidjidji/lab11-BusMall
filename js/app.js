@@ -30,6 +30,8 @@ function getProducyArray(nameOfTheProperty){
     var answer = [];
     for(var i = 0; i < allProductPicture.length; i++){
       answer[i] = allProductPicture[i][nameOfTheProperty];
+
+      
     }
     return answer;
   }
@@ -135,7 +137,7 @@ function numberOfClick (event){
       
         }
 
-for(i=0;i<allProductPicture.length;i++){
+{
     var ctx = document.getElementById('resultsChart').getContext('2d');
  
   new Chart(ctx, {
@@ -145,14 +147,11 @@ for(i=0;i<allProductPicture.length;i++){
       datasets: [{
         label:'number of time shown ',
         data:getProducyArray ('totalshow'),
-        backgroundColor: [
+        backgroundColor: 
+        generateRandomColor(),
         
-            generateRandomColor()
-        
-
-        ],
         borderColor: [
-        
+            
    
         ],
         borderWidth: 1
@@ -190,15 +189,30 @@ for (var i = 0; i < imageElements.length; i++)
 
   }
 
+function generateRandomColor(){
+    var colAray=[];
 
-  function generateRandomColor()
-{
-    
-        var x = Math.floor(Math.random() * 256);
-        var y = Math.floor(Math.random() * 256);
-        var z = Math.floor(Math.random() * 256);
-        var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+    for(i=0;i<allProductPicture.length;i++)
+    {
+
    
-      return bgColor;
-   
+  
+    var x = Math.floor(Math.random() * 256);
+    var y = Math.floor(Math.random() * 256);
+    var z = Math.floor(Math.random() * 256);
+
+    var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+
+    colAray[i]= bgColor;
+
+    }
+
+return colAray;
 }
+
+
+
+
+
+
+
