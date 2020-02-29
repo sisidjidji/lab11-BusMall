@@ -26,6 +26,14 @@ function product (name,imgUrl){
 
 }
 
+function getProducyArray(nameOfTheProperty){
+    var answer = [];
+    for(var i = 0; i < allProductPicture.length; i++){
+      answer[i] = allProductPicture[i][nameOfTheProperty];
+    }
+    return answer;
+  }
+
 // creating our product
 
 new product('bag', 'images/bag.jpg');
@@ -127,33 +135,50 @@ function numberOfClick (event){
       
         }
 
-        var footerul = document.getElementById('footer-ul');
+for(i=0;i<allProductPicture.length;i++){
+    var ctx = document.getElementById('resultsChart').getContext('2d');
+ 
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: getProducyArray('name'),
+      datasets: [{
+        label:'number of time shown ',
+        data:getProducyArray ('totalshow'),
+        backgroundColor: [
+        
+            generateRandomColor()
+        
 
-     
-
-
-    if(footerul.firstElementChild){
-            footerul.firstElementChild.remove();
+        ],
+        borderColor: [
+        
+   
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true,
+            stepSize: 1
           }
-
-  
-    var ul=document.createElement('ul');
-    footerul.appendChild(ul);
-    
-    for(i=0;i<allProductPicture.length;i++){
-
-        var li=document.createElement('li');
-        li.textContent=' The '+ allProductPicture[i].name +  ' was clicked :' + allProductPicture[i].totalClick +' was shown : ' + allProductPicture[i].totalshow;
-        ul.appendChild(li)
-
-      
-
+        }]
+      }
     }
+  });
+
+  }
+
+}
+}
  
 
-}
 
-}
+
+
 
 
 
@@ -164,3 +189,16 @@ for (var i = 0; i < imageElements.length; i++)
   imageElements[i].addEventListener('click', numberOfClick );  
 
   }
+
+
+  function generateRandomColor()
+{
+    
+        var x = Math.floor(Math.random() * 256);
+        var y = Math.floor(Math.random() * 256);
+        var z = Math.floor(Math.random() * 256);
+        var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+   
+      return bgColor;
+   
+}
