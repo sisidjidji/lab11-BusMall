@@ -99,6 +99,8 @@ if(savedProductString){
 
 function numberOfClick (event){
 
+
+  //calculate the number of click
   allClicks++;
 
   if (event.srcElement.id=== '1'){
@@ -115,6 +117,7 @@ function numberOfClick (event){
     allProductPicture[picIndex3].totalClick++ ;
   }
 
+  //Generate a random image compare it with the other pictures if this picture algready exist we randomly select another one
 
   var Nextproduct1 = Math.floor(Math.random()* allProductPicture.length);
 
@@ -129,17 +132,17 @@ function numberOfClick (event){
 
   while((Nextproduct2===picIndex1)||(Nextproduct2===picIndex2)||(Nextproduct2===picIndex3)||(Nextproduct2===Nextproduct1)||(Nextproduct2===preimg1)|| (Nextproduct2===preimg2)|| (Nextproduct2===preimg3)){
 
-    var Nextproduct2=Math.floor(Math.random()* allProductPicture.length);
+    Nextproduct2=Math.floor(Math.random()* allProductPicture.length);
   }
   var Nextproduct3=Math.floor(Math.random()* allProductPicture.length);
 
   while((Nextproduct3===picIndex1)||(Nextproduct3===picIndex2)||(Nextproduct3===picIndex3)||(Nextproduct3===Nextproduct1)|| (Nextproduct3===Nextproduct2)|| (Nextproduct3===preimg1)|| (Nextproduct3===preimg2)|| (Nextproduct3===preimg3)){
 
-    var Nextproduct3=Math.floor(Math.random()* allProductPicture.length);
+    Nextproduct3=Math.floor(Math.random()* allProductPicture.length);
   }
 
 
-
+// assign the random picutre to the image index
 
   picIndex1= Nextproduct1;
   preimg1=Nextproduct1;
@@ -159,7 +162,7 @@ function numberOfClick (event){
 
   imageElements[2].src =allProductPicture[picIndex3].imgUrl;
 
-
+// allow 25 clicks
 
   console.log(allProductPicture);
 
@@ -167,22 +170,25 @@ function numberOfClick (event){
 
   if (allClicks >= clickAllowed ) {
 
+    // store the information on the local storage .
+
     localStorage.setItem('savedProduct',JSON.stringify(allProductPicture));
 
 
-
+// remove the event listener
     for (var i = 0; i < imageElements.length; i++)
     {
       imageElements[i].removeEventListener('click', numberOfClick );
 
     }
 
+    // generate an unordred list that contain the number of clicks and the number of times the items was shown .
 
     var footerul = document.getElementById('footer-ul');
 
 
 
-
+// if previous result exist remove it .
     if(footerul.firstElementChild){
       footerul.firstElementChild.remove();
     }
@@ -194,11 +200,13 @@ function numberOfClick (event){
     for(i=0;i<allProductPicture.length;i++){
 
       var li=document.createElement('li');
-      li.textContent=' The '+ allProductPicture[i].name + ' was cliqued : '+allProductPicture[i].totalClick +' and the number of time it was shown is '+ allProductPicture[i].totalshow;
+      li.textContent=' The '+ allProductPicture[i].name + ' was cliqued : '+allProductPicture[i].totalClick +' times , and the number of times it was shown is '+ allProductPicture[i].totalshow;
       ul.appendChild(li);
 
 
     }
+
+    // creat a chart js .
 
     var ctx = document.getElementById('resultsChart').getContext('2d');
 
@@ -244,13 +252,15 @@ function numberOfClick (event){
 
 
 
-for (var i = 0; i < imageElements.length; i++)
+for ( i = 0; i < imageElements.length; i++)
 {
 
   imageElements[i].addEventListener('click', numberOfClick );
 
 }
 
+
+// function that geerate a random color for the chart js.
 function generateRandomColor(){
   var colAray=[];
 
