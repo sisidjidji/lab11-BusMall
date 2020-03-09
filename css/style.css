@@ -4,32 +4,46 @@
     color: darkslategrey;
 } 
 aside{
-    margin-top:70px ;
+    margin-top:0px ;
     border: 2px darkslategrey solid;
-    color: darkslategrey;
-    text-align: justify;
+    color:#006400;
+    text-align: center;
     width:500px ;
     height:500px ;
+    background-color:#87CEFA;
+    margin-right: 0;
+    font-family: 'Lobster', cursive ;
 
- 
+    text
+}
+
+
+
+
+
+html{
+background-color: #2F4F4F;
 }
 img{
     margin-top: 70px;
-    width: 300px;
-    height: 400px;
-    float:right;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
     border: 2px darkslategrey solid;
-
+    margin-right: 20px;
+    
 }
 
 h1{
-    margin-top: 60px;
-    font-family: 'Roboto' ;
+    margin-top: 0px;
+    font-family: 'Trade Winds', cursive;
     color:white ;
     border: darkslategray solid;
-    background-color: dimgray;
+    background-color: #87CEFA;
     text-align: center;
-    height: 50px;
+    height: 60px;
+    font-size:xx-large;
+   
    
 }
 
@@ -37,18 +51,21 @@ h1{
 
 p{
 
-
-    margin-top: 0px;
+    font-family: 'Lobster', cursive;
+    /* margin-top: 0px; */
     margin-left: 600px ;
     text-align: justify;
     font-size: large;
     color:black ;
     max-width: 700px;
     max-height: 300px;
+    line-height: 30px;
+    display: inline-block;
+    margin-top: 0;
 
     
 
-
+clear:both;
 }
 
 
@@ -60,3 +77,25 @@ p{
     max-height:700px ;
     margin-left: 555px;
 }
+
+
+.threed:hover
+{
+        box-shadow:
+                1px 1px #53a7ea,
+                2px 2px #53a7ea,
+                3px 3px #53a7ea;
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+
+        
+}
+
+.imageFloat {
+
+
+    float: right;
+    margin-right: 200px;
+   
+}
+
